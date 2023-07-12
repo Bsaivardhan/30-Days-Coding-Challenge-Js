@@ -15,28 +15,28 @@ function spotlightMap(grid) {
   
        
         if (i - 1 >= 0) {
-          sum += grid[i - 1][j]; // Top
+          sum += grid[i - 1][j]; 
           if (j - 1 >= 0) {
-            sum += grid[i - 1][j - 1]; // Top-left
+            sum += grid[i - 1][j - 1];
           }
           if (j + 1 < cols) {
-            sum += grid[i - 1][j + 1]; // Top-right
+            sum += grid[i - 1][j + 1]; 
           }
         }
         if (i + 1 < rows) {
-          sum += grid[i + 1][j]; // Bottom
+          sum += grid[i + 1][j];
           if (j - 1 >= 0) {
-            sum += grid[i + 1][j - 1]; // Bottom-left
+            sum += grid[i + 1][j - 1]; 
           }
           if (j + 1 < cols) {
-            sum += grid[i + 1][j + 1]; // Bottom-right
+            sum += grid[i + 1][j + 1]; 
           }
         }
         if (j - 1 >= 0) {
-          sum += grid[i][j - 1]; // Left
+          sum += grid[i][j - 1];
         }
         if (j + 1 < cols) {
-          sum += grid[i][j + 1]; // Right
+          sum += grid[i][j + 1]; 
         }
   
         result[i][j] = sum; 
