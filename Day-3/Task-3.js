@@ -1,39 +1,27 @@
-function getObject(obj) {
-  let uniqueMarks = {};
+function change(obj){
+  let check=new Set();
+  Object.entries(obj).map((val)=>{
+      let m=val[1].marks;
+      if(check.has(m)){
 
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      let entry = obj[key];
-
-      {
-        let mark = entry.marks;
-
-        if (!(mark in uniqueMarks) ) {
-          uniqueMarks[mark] = entry;
-        }
+          delete obj[val[0]]
       }
-    }
-  }
-
-  let result = {};
-
-  let index = 0;
-  for (let mark in uniqueMarks) {
-    if (uniqueMarks.hasOwnProperty(mark)) {
-      result[index] = uniqueMarks[mark];
-      index++;
-    }
-  }
-
-  return result;
+      else{
+          check.add(m);
+      }
+  })
+  
+  return obj;
+  
 }
 
-let example1 = {
-  0: { age: 18, name: "john", marks: "400" },
-1: { age: 17, name: "julie", marks: "400" },
-2: { age: 16, name: "Robin", marks: "200" },
-3: { age: 16, name: "Bella", marks: "300" }
-};
-
-console.log(getObject(example1));
-
+getObject={
+0: {age: 18, name: 'john', marks: '400'},
+1: {age: 17, name: 'julie', marks: '400'},
+2: {age: 16, name: 'Robin', marks: '200'},
+3: {age: 16, name: 'Bella', marks: '300'},
+4: {age: 16, name: 'john', marks: '250'},
+5: {age: 15, name: 'julie', marks: '250'}
+}
+const ans=change(getObject);
+console.log(ans);
